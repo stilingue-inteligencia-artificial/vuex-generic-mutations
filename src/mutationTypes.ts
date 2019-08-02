@@ -1,0 +1,3 @@
+export const MUTATE = 'MUTATE';
+export const MUTATE_OBJECT_KEY = 'MUTATE_OBJECT_KEY';
+export const MUTATE_MULTIPLE = 'MUTATE_MULTIPLE';
