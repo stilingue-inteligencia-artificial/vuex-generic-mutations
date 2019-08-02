@@ -1,6 +1,6 @@
 {
   "name": "vuex-generic-mutations",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Vuex plugin to enable generic mutations in all modules",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,11 @@
     "Leonardo Bombonado <leo@stilingue.com.br>",
     "Danniel Hugo <danniel@stilingue.com.br>"
   ],
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stilingue-inteligencia-artificial/vuex-generic-mutations"
+  },
+  "license": "GNU General Public License v3.0",
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-transform-modules-commonjs": "^7.4.3",
