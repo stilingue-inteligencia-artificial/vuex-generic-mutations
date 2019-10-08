@@ -1,8 +1,4 @@
-import {
-  mutate,
-  mutateMultiple,
-  mutateObjectKey,
-} from '../src/mutations';
+import { mutate, mutateMultiple, mutateObjectKey } from '../src/mutations';
 
 describe('Testing generic mutations', () => {
   /**
@@ -22,8 +18,7 @@ describe('Testing generic mutations', () => {
         property: 'key',
         with: 'newValue',
       });
-      expect(state.key)
-        .toBe('newValue');
+      expect(state.key).toBe('newValue');
     });
   });
 
@@ -37,8 +32,7 @@ describe('Testing generic mutations', () => {
         mutate(state, {
           with: 'newValue',
         });
-      })
-        .toThrow();
+      }).toThrow();
     });
 
     it('should not mutate if missing with', () => {
@@ -46,8 +40,7 @@ describe('Testing generic mutations', () => {
         mutate(state, {
           property: 'key',
         });
-      })
-        .toThrow();
+      }).toThrow();
     });
   });
 
@@ -65,17 +58,18 @@ describe('Testing generic mutations', () => {
     });
 
     it('should mutate multiple attributes', () => {
-      mutateMultiple(state, [{
-        property: 'key1',
-        with: 'newValue1',
-      }, {
-        property: 'key2',
-        with: 'newValue2',
-      }]);
-      expect(state.key1)
-        .toBe('newValue1');
-      expect(state.key2)
-        .toBe('newValue2');
+      mutateMultiple(state, [
+        {
+          property: 'key1',
+          with: 'newValue1',
+        },
+        {
+          property: 'key2',
+          with: 'newValue2',
+        },
+      ]);
+      expect(state.key1).toBe('newValue1');
+      expect(state.key2).toBe('newValue2');
     });
   });
 
@@ -95,60 +89,59 @@ describe('Testing generic mutations', () => {
           property: 'key1',
           with: 'newValue1',
         });
-      })
-        .toThrow();
-      expect(state.key1)
-        .toBe('value1');
+      }).toThrow();
+      expect(state.key1).toBe('value1');
     });
 
     it('should not mutate with any payload is missing with', () => {
       expect(() => {
-        mutateMultiple(state, [{
-          property: 'key1',
-        }]);
-      })
-        .toThrow();
-      expect(state.key1)
-        .toBe('value1');
+        mutateMultiple(state, [
+          {
+            property: 'key1',
+          },
+        ]);
+      }).toThrow();
+      expect(state.key1).toBe('value1');
     });
 
     it('should not mutate with any payload is missing property', () => {
       expect(() => {
-        mutateMultiple(state, [{
-          property: 'key1',
-          with: 'newValue1',
-        }, {
-          with: 'newValue2',
-        }]);
-      })
-        .toThrow();
-      expect(state.key1)
-        .toBe('value1');
-      expect(state.key2)
-        .toBe('value2');
+        mutateMultiple(state, [
+          {
+            property: 'key1',
+            with: 'newValue1',
+          },
+          {
+            with: 'newValue2',
+          },
+        ]);
+      }).toThrow();
+      expect(state.key1).toBe('value1');
+      expect(state.key2).toBe('value2');
     });
 
     it('should not mutate with any payload is missing with and property', () => {
       expect(() => {
-        mutateMultiple(state, [{
-          property: 'key1',
-          with: 'newValue1',
-        }, {
-          with: 'newValue2',
-        }, {
-          property: 'key3',
-          with: 'newValue3',
-        }, {
-          property: 'key4',
-        }]);
-      })
-        .toThrow();
-      expect(state.key1)
-        .toBe('value1');
-      expect(state.key2)
-        .toBe('value2');
-      expect('key3' in state)
-        .toBeFalsy();
+        mutateMultiple(state, [
+          {
+            property: 'key1',
+            with: 'newValue1',
+          },
+          {
+            with: 'newValue2',
+          },
+          {
+            property: 'key3',
+            with: 'newValue3',
+          },
+          {
+            property: 'key4',
+          },
+        ]);
+      }).toThrow();
+      expect(state.key1).toBe('value1');
+      expect(state.key2).toBe('value2');
+      expect('key3' in state).toBeFalsy();
     });
   });
 
@@ -172,8 +165,7 @@ describe('Testing generic mutations', () => {
         key: 'keyOfKey',
         with: 'newValue',
       });
-      expect(state.key.keyOfKey)
-        .toBe('newValue');
+      expect(state.key.keyOfKey).toBe('newValue');
     });
 
     it('should create key in attribute', () => {
@@ -182,10 +174,8 @@ describe('Testing generic mutations', () => {
         key: 'keyOfKey2',
         with: 'newValue2',
       });
-      expect('keyOfKey2' in state.key)
-        .toBeTruthy();
-      expect(state.key.keyOfKey2)
-        .toBe('newValue2');
+      expect('keyOfKey2' in state.key).toBeTruthy();
+      expect(state.key.keyOfKey2).toBe('newValue2');
     });
   });
 
@@ -202,13 +192,14 @@ describe('Testing generic mutations', () => {
 
     it('should not accept array as param', () => {
       expect(() => {
-        mutateObjectKey(state, [{
-          property: 'key',
-          key: 'keyOfKey',
-          with: 'newValue',
-        }]);
-      })
-        .toThrow();
+        mutateObjectKey(state, [
+          {
+            property: 'key',
+            key: 'keyOfKey',
+            with: 'newValue',
+          },
+        ]);
+      }).toThrow();
     });
 
     it('should not accept when missing property', () => {
@@ -217,10 +208,8 @@ describe('Testing generic mutations', () => {
           key: 'keyOfKey',
           with: 'newValue',
         });
-      })
-        .toThrow();
-      expect(state.key.keyOfKey)
-        .toBe('value');
+      }).toThrow();
+      expect(state.key.keyOfKey).toBe('value');
     });
 
     it('should not accept when missing key', () => {
@@ -229,10 +218,8 @@ describe('Testing generic mutations', () => {
           property: 'key',
           with: 'newValue',
         });
-      })
-        .toThrow();
-      expect(state.key.keyOfKey)
-        .toBe('value');
+      }).toThrow();
+      expect(state.key.keyOfKey).toBe('value');
     });
 
     it('should not accept when missing with', () => {
@@ -241,10 +228,8 @@ describe('Testing generic mutations', () => {
           property: 'key',
           key: 'keyOfKey',
         });
-      })
-        .toThrow();
-      expect(state.key.keyOfKey)
-        .toBe('value');
+      }).toThrow();
+      expect(state.key.keyOfKey).toBe('value');
     });
   });
 });
