@@ -36,15 +36,15 @@ const noMutation = {
 describe('plugin', () => {
   it('tests if plugin adds mutations to all modules', () => {
     plugin(store);
-    Object.values(store._modulesNamespaceMap)
-      .forEach((module) => {
-        expect(module._rawModule.mutations)
-          .toEqual(expect.objectContaining({
-            [MUTATE]: mutate,
-            [MUTATE_MULTIPLE]: mutateMultiple,
-            [MUTATE_OBJECT_KEY]: mutateObjectKey,
-          }));
-      });
+    Object.values(store._modulesNamespaceMap).forEach(module => {
+      expect(module._rawModule.mutations).toEqual(
+        expect.objectContaining({
+          [MUTATE]: mutate,
+          [MUTATE_MULTIPLE]: mutateMultiple,
+          [MUTATE_OBJECT_KEY]: mutateObjectKey,
+        }),
+      );
+    });
   });
 
   it('does not add mutations to the module if it has no mutation object', () => {
