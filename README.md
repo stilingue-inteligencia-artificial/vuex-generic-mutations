@@ -6,7 +6,8 @@ These are the mutations:
 - MUTATE: updates an state property with a defined value
 - MUTATE_MULTIPLE: updates N state properties with N defined values
 - MUTATE_OBJECT_KEY: updates an state object nested property with a defined value
-
+- MUTATE_REMOVE_OBJECT_KEY: update an state removing a target key from the a target object
+- MUTATE_REMOVE_OBJECTS_FROM_ARRAY_BY_ATTRIBUTE_AND_VALUE: update an state removing an object from an array by a attribute and a value
 
 #### Usage:
 To enjoy the generic mutations, first install the package using npm or yarn.
