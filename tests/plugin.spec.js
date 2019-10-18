@@ -1,9 +1,10 @@
 import plugin from '../src/plugin';
 import * as mutationTypes from '../src/mutationTypes';
-import * as mutations from '../src/mutations';
+import { mutate } from '../src/mutations/mutate';
+import { mutateMultiple } from '../src/mutations/mutateMultiple';
+import { mutateObjectKey } from '../src/mutations/mutateObjectKey';
 
 const { MUTATE, MUTATE_MULTIPLE, MUTATE_OBJECT_KEY } = mutationTypes;
-const { mutate, mutateMultiple, mutateObjectKey } = mutations;
 
 const store = {
   _modulesNamespaceMap: {

@@ -22,7 +22,7 @@ module.exports = {
     NODE_ENV: 'test',
   },
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
+    '^.+\\.tsx?$': 'ts-jest',
   },
 };
