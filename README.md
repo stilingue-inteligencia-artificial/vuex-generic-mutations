@@ -1,5 +1,7 @@
 ## Vuex Generic Mutations
 
+> This library is no longer maintained.
+
 This package provides base implementations of generic mutations to your [Vuex](https://github.com/vuejs/vuex/) modules. It works by injecting tree mutations on each module that already has a mutation object.
 
 These are the mutations:
